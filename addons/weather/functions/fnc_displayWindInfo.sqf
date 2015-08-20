@@ -30,7 +30,7 @@ GVAR(WindInfo) = true;
 [{
     private ["_windSpeed", "_windDir", "_playerDir", "_windIndex", "_windColor"];
 
-    if !(GVAR(WindInfo) && !(underwater ACE_player) && vehicle ACE_player == ACE_player) exitWith {
+    if (!GVAR(WindInfo) && {underwater ACE_player} && {vehicle ACE_player != ACE_player}) exitWith {
         GVAR(WindInfo) = false;
         0 cutText ["", "PLAIN"];
         [_this select 1] call cba_fnc_removePerFrameHandler;
@@ -45,7 +45,7 @@ GVAR(WindInfo) = true;
         // Without wind gradient
         [eyePos ACE_player, false, true, true] call FUNC(calculateWindSpeed);
     };
-    
+
     if (_windSpeed > 0.2) then {
         _playerDir = (ACE_player call CBA_fnc_headDir) select 0;
         _windDir = (ACE_wind select 0) atan2 (ACE_wind select 1);

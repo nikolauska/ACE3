@@ -15,5 +15,6 @@
 #include "script_component.hpp"
 
 // Source: http://wahiduddin.net/calc/density_altitude.htm
+params ["_density"];
 
-((44.3308 - 42.2665 * _this ^ 0.2349692456) * 1000)
+((44.3308 - 42.2665 * _density ^ 0.2349692456) * 1000)

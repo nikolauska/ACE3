@@ -11,11 +11,10 @@
  */
 #include "script_component.hpp"
 
-private ["_time", "_month", "_timeRatio"];
-_time = daytime;
+private ["_month", "_timeRatio"];
 _month = date select 1;
 
-_timeRatio = abs(_time - 12) / 12;
+_timeRatio = abs(daytime - 12) / 12;
 
 GVAR(currentTemperature) = (GVAR(TempDay) select (_month - 1)) * (1 - _timeRatio) + (GVAR(TempNight) select (_month - 1)) * _timeRatio;
 GVAR(currentTemperature) = GVAR(currentTemperature) + GVAR(temperatureShift) - GVAR(badWeatherShift) * overcast;

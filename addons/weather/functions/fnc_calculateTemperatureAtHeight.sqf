@@ -14,4 +14,6 @@
  */
 #include "script_component.hpp"
 
-(GVAR(currentTemperature) - 0.0065 * _this)
+params ["_height"];
+
+(GVAR(currentTemperature) - 0.0065 * _height)

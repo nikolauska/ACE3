@@ -14,4 +14,6 @@
  */
 #include "script_component.hpp"
 
-(331.3 + (0.6 * _this))
+params ["_temperature"];
+
+(331.3 + (0.6 * _temperature))

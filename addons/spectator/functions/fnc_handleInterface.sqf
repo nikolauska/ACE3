@@ -248,6 +248,11 @@ switch (toLower _mode) do {
             };
             case 57: { // Spacebar
                 // Switch between unit and freecam here
+                if(GVAR(camMode) != 0) then {
+                    [0] call FUNC(transitionCamera);
+                } else {
+                    [2] call FUNC(transitionCamera);
+                };
             };
             case 74: { // Num -
                 if (_alt) exitWith { [nil,nil,nil,nil,nil,nil, 1.25] call FUNC(setCameraAttributes); };
